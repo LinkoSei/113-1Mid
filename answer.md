@@ -1,12 +1,12 @@
 # 期中考
 >
->學號：1234567
+>學號：112111209
 ><br />
->姓名：王小明
+>姓名：張香裕
 ><br />
->作業撰寫時間：180 (mins，包含程式撰寫時間)
+>作業撰寫時間：35 (mins，包含程式撰寫時間)
 ><br />
->最後撰寫文件日期：2023/09/22
+>最後撰寫文件日期：2024/11/4
 >
 
 本份文件包含以下主題：(至少需下面兩項，若是有多者可以自行新增)
@@ -54,22 +54,56 @@ public void mt_getResult(){
 
 a. 小題
 
-Ans
+Ans:
+
+```py
+map = [[0 for _ in range(10)] for _ in range(10)]
+```
 
 b. 小題
 
-Ans
+Ans:
+
+```py
+rowMap = [] #未導入10個數值,但陣列
+```
 
 c. 小題
 
-Ans
+Ans:
+
+```py
+rowMap = [0, 7, 13, 28, 44, 62, 74, 75, 87, 90] #導入10個數值後
+```
 
 
 d. 小題
 
-Ans
+Ans:
 
+```py
+for index in rowMap:
+    row = index // 10  
+    col = index % 10   
+    map[row][col] = '*'
+```
 
 e. 小題
 
-Ans
+Ans:
+
+```py
+for i in range(10):
+    for j in range(10):
+        if map[i][j] == '*':
+            continue    #若為炸彈跳過此循環 執行下個循環
+        bomb_count = 0
+        for x in range(max(0, i - 1), min(10, i + 2)):
+            for y in range(max(0, j - 1), min(10, j + 2)):
+                if map[x][y] == '*':
+                    bomb_count += 1
+        map[i][j] = bomb_count if bomb_count > 0 else ' '
+
+for row in map:
+    print(" ".join(str(cell) for cell in row))
+```
