@@ -96,13 +96,13 @@ Ans:
 for i in range(10):
     for j in range(10):
         if map[i][j] == '*':
-            continue    #若為炸彈跳過此循環 執行下個循環
-        bomb_count = 0
-        for x in range(max(0, i - 1), min(10, i + 2)):
-            for y in range(max(0, j - 1), min(10, j + 2)):
+            continue
+        bomb_c = 0
+        for x in range(max(0, i-1), min(10,i+2)):
+            for y in range(max (0, j-1),min(10, j+2)):
                 if map[x][y] == '*':
-                    bomb_count += 1
-        map[i][j] = bomb_count if bomb_count > 0 else ' '
+                    bomb_c +=1
+        map[i][j] = bomb_c if bomb_c > 0 else ' '
 
 for row in map:
     print(" ".join(str(cell) for cell in row))
